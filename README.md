@@ -81,7 +81,22 @@ git clone https://github.com/realteamprinz/midas-skill ~/.openclaw/workspace/ski
 
 ### Dependencies (optional)
 
-Midas is pure Markdown — no runtime dependencies required. Python tooling for automated input collection (browser history parser, receipt OCR, etc.) is planned and will live under `tools/` in a future release.
+Midas's core skill (SKILL.md) is pure Markdown — no runtime dependencies. The Python tools under `tools/` use only the standard library (Python 3.9+):
+
+```bash
+# No pip install needed — all tools use only stdlib (json, sqlite3, csv, re, argparse)
+# Optional future deps are listed in requirements.txt
+```
+
+### Python Tools
+
+| Tool | What it does | Usage |
+|---|---|---|
+| `tools/slack_export_parser.py` | Parse Slack JSON/text exports into Midas input | `python tools/slack_export_parser.py ~/slack-export/` |
+| `tools/chat_export_parser.py` | Parse WhatsApp/WeChat/Telegram/iMessage exports | `python tools/chat_export_parser.py chat.txt` |
+| `tools/browser_history_parser.py` | Extract Chrome/Firefox/Safari history from local SQLite | `python tools/browser_history_parser.py --days 7` |
+| `tools/evolution_manager.py` | Manage evolution.jsonl (list, show, stats, decay, golden) | `python tools/evolution_manager.py golden` |
+| `tools/signal_report_validator.py` | Validate signal reports against Midas quality standards | `python tools/signal_report_validator.py report.md` |
 
 ---
 
@@ -256,6 +271,14 @@ midas-skill/
 ├── README.md                             # This file
 ├── README_ZH.md · README_ES.md · ...     # Language variants
 ├── LICENSE                               # MIT
+├── requirements.txt                      # Python dependencies (stdlib only)
+├── tools/                                # Python tooling (3.9+)
+│   ├── __init__.py
+│   ├── slack_export_parser.py            # Parse Slack JSON/text exports
+│   ├── chat_export_parser.py             # Parse WhatsApp/WeChat/Telegram/iMessage
+│   ├── browser_history_parser.py         # Extract Chrome/Firefox/Safari history
+│   ├── evolution_manager.py              # Manage evolution.jsonl (list, decay, golden)
+│   └── signal_report_validator.py        # Validate reports against quality standards
 ├── references/
 │   ├── signal-extraction-framework.md    # 6-lens methodology
 │   ├── noise-to-gold-pipeline.md         # 7-stage extraction pipeline
