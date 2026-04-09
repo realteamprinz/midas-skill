@@ -35,7 +35,7 @@ and get **a ranked list of money signals, opportunities, and immediate next acti
 
 ---
 
-Created by [@realteamprinz](https://github.com/realteamprinz) | Positioning: **Nuwa distills how people think. Midas distills how to turn your daily noise into money.**
+Created by [@realteamprinz](https://github.com/realteamprinz) | Positioning: ** Midas distills how to turn your daily noise into money.**
 
 ## Supported Sources
 
